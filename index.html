@@ -8,10 +8,32 @@
 
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./styles/aot.css">
+    <link rel="stylesheet" href="./styles/standard.css">
+    <link rel="stylesheet" href="./styles/header.css">
+
+    <script src="./scripts/db.js"></script>
+    <script src="./scripts/templates.js"></script>
+    <script src="./script.js"></script>
 </head>
 <body>
-    <header></header>
-    <div class="aot"></div>
+    <header>
+        <div class="logo">
+            <img class="header_logo" src="./assets/icons/Logo.png" alt="Logo">
+        </div>
+    </header>
+    <main>
+        <section class="restaurant_info">
+            <div class="aot"></div>
+            <div class="restaurant_overview">
+                <div class="restaurant_details">
+                    <h2>Da Giorgio</h2>
+                    <p class="rating">Bewertung (4,6 von 5 Sternen)</p>
+                </div>
+                <img class="restaurant_logo" src="./assets/img/restaurant_logo.jpg" alt="restaurant_logo">
+            </div>
+        </section>
+    </main>
+    
     <div id="content"></div>
     <footer></footer>
 </body>

@@ -1,0 +1,10 @@
+header {
+    background-color: #ff6600;
+    color: white;
+    padding: 10px;
+    text-align: left;
+}
+
+.header_logo {
+    height: 96px;
+}
