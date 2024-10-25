@@ -1,3 +1,11 @@
 button:hover {
     background-color: #ff6600;;
 }
+
+button {
+    height: 64px;
+    width: 64px;
+    font-size: -webkit-xxx-large;
+    border-radius: 8px;
+    margin: 16px;
+}
