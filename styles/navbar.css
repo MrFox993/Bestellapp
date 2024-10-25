@@ -6,7 +6,6 @@ nav {
     height: 3dvh;
     padding: 0 16px;
     margin-bottom: 20px;
-    /* width: calc(100% - 300px); */
 }
 nav a {
     text-decoration: none;

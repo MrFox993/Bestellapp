@@ -1,15 +1,14 @@
 function getNavbarHTMLTemplate(indexMenu) {
     return `
-    <a href="#">${(Object.keys(menu)[indexMenu])}</a>
+    <a href="#dishes_catagory_${(indexMenu)}">${(Object.keys(menu)[indexMenu])}</a>
     `;
 }
 
 function getDishesCatagoryHTMLTemplate(indexMenuCatagory){
     return `
-        <div class="dishes_catagory">
-            <h1>${(Object.keys(menu)[indexMenuCatagory])}</h1>
-            <div id="dishes_catagory_${(indexMenuCatagory)}" class="dishes"></div>
-        </div>
+            <div id="dishes_catagory_${(indexMenuCatagory)}" class="dishes">
+                <h1>${(Object.keys(menu)[indexMenuCatagory])}</h1>
+            </div>
     `;
 }
 

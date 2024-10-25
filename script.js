@@ -22,7 +22,7 @@ function renderMenuCatagory() {
 
 function renderDishes(indexMenuCatagory) {
     let singleDishRef = document.getElementById(`dishes_catagory_${(indexMenuCatagory)}`);
-    singleDishRef.innerHTML = "";
+    // singleDishRef.innerHTML = "";
     for (let indexDish = 0; indexDish < Object.entries(menu)[indexMenuCatagory][1].length; indexDish++) {
         singleDishRef.innerHTML += getSingleDishesHTMLTemplate(indexMenuCatagory, indexDish)
     }
