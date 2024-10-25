@@ -10,12 +10,16 @@
     <link rel="stylesheet" href="./styles/aot.css">
     <link rel="stylesheet" href="./styles/standard.css">
     <link rel="stylesheet" href="./styles/header.css">
+    <link rel="stylesheet" href="./styles/navbar.css">
+    <link rel="stylesheet" href="./styles/dishes.css">
+    <link rel="stylesheet" href="./styles/assets.css">
+    <link rel="stylesheet" href="./styles/footer.css">
 
     <script src="./scripts/db.js"></script>
     <script src="./scripts/templates.js"></script>
     <script src="./script.js"></script>
 </head>
-<body>
+<body onload="init()">
     <header>
         <div class="logo">
             <img class="header_logo" src="./assets/icons/Logo.png" alt="Logo">
@@ -32,9 +36,12 @@
                 <img class="restaurant_logo" src="./assets/img/restaurant_logo.jpg" alt="restaurant_logo">
             </div>
         </section>
+        <nav id="navbar"></nav>
     </main>
-    
-    <div id="content"></div>
-    <footer></footer>
+    <div id="content">
+    </div>
+    <footer>
+        <img src="./assets/icons/favicon-32x32.png" alt="logo_small">
+    </footer>
 </body>
 </html>
