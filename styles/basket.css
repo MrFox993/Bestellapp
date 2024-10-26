@@ -2,8 +2,6 @@
     width: 300px;
     flex-grow: 1;
     padding: 16px;
-    display: flex;
-    justify-content: center;
 }
 #basket {
     width: 100%;
@@ -15,4 +13,32 @@
     flex-direction: column;
     align-items: center;
     padding: 16px;
+}
+.inner_basket {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 236px;
+}
+.basket_section_line {
+    width: 100%;
+    padding: 16px;
+}
+hr.solid {
+    border-top: 3px solid #bbb;
+  }
+#basket_calc {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.single_basket_value {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    width: 236px;
+}
+.basket_content {
+    padding: 0 16px;
 }

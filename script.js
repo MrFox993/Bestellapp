@@ -27,3 +27,7 @@ function renderDishes(indexMenuCatagory) {
         singleDishRef.innerHTML += getSingleDishesHTMLTemplate(indexMenuCatagory, indexDish)
     }
 }
+
+function addToBasket(indexMenuCatagory, indexDish) {
+    console.log(`single_dish_${(indexMenuCatagory)}_${(indexDish)}` + " , " + Object.entries(menu)[indexMenuCatagory][1][indexDish].name);
+}

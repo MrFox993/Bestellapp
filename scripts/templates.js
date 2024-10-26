@@ -14,7 +14,7 @@ function getDishesCatagoryHTMLTemplate(indexMenuCatagory){
 
 function getSingleDishesHTMLTemplate(indexMenuCatagory, indexDish){
     return `
-        <div id="single_dish_${(indexMenuCatagory)}" class="single_dish">
+        <div onclick="addToBasket(${(indexMenuCatagory)}, ${(indexDish)})" id="single_dish_${(indexMenuCatagory)}_${(indexDish)}" class="single_dish">
             <div class="dish_information">
                 <h2>${(Object.entries(menu)[indexMenuCatagory][1][indexDish].name)}</h2>
                 <p class="dish_description">${(Object.entries(menu)[indexMenuCatagory][1][indexDish].description)}</p>
