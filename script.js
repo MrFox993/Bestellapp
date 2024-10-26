@@ -1,6 +1,7 @@
 function init() {
-    renderNavBar()
-    renderMenuCatagory()
+    renderNavBar();
+    renderMenuCatagory();
+    renderBasket();
 }
 
 function renderNavBar() {
@@ -30,4 +31,10 @@ function renderDishes(indexMenuCatagory) {
 
 function addToBasket(indexMenuCatagory, indexDish) {
     console.log(`single_dish_${(indexMenuCatagory)}_${(indexDish)}` + " , " + Object.entries(menu)[indexMenuCatagory][1][indexDish].name);
+}
+
+function renderBasket() {
+    let basketWrapRef = document.getElementById('basket_wrap');
+    basketWrapRef.innerHTML = "";
+    basketWrapRef.innerHTML += getBasketWrapperHTMLTemplate();
 }

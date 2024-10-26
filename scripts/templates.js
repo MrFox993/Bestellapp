@@ -22,5 +22,36 @@ function getSingleDishesHTMLTemplate(indexMenuCatagory, indexDish){
             </div>
             <button>+</button>
         </div>
-`;
+    `;
+}
+
+function getBasketWrapperHTMLTemplate(){
+    return `
+        <div id="basket">
+            <h1>Warenkorb</h1>
+            <div class="inner_basket">
+                <div class="basket_section_line">
+                    <hr class="solid">
+                </div>
+                <div id="basket_content"></div>
+                <div class="basket_section_line">
+                    <hr class="solid">
+                </div>
+                <div id="basket_calc">
+                    <div class="single_basket_value">
+                        <div>Zwischensumme</div>
+                        <div id="subtotal"></div>
+                    </div>
+                    <div class="single_basket_value">
+                        <div>Lieferkosten</div>
+                        <div id="delivery_price">5,00€</div>
+                    </div>
+                    <div class="single_basket_value">
+                        <div>Gesamtkosten</div>
+                        <div id="total_price"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
 }
