@@ -114,3 +114,5 @@ let menu = {
         }
     ]
 };
+
+let basket = {};
