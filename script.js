@@ -74,3 +74,29 @@ function addToBasket(indexMenuCatagory, indexDish) {
   }
   renderBasketContent();
 }
+
+function increaseAmountBasket(index_basket_dish) {
+    let basket_dish_index = "";
+    basket_dish_index = Object.entries(basket)[index_basket_dish][0];
+    basket[basket_dish_index].amount += 1;
+    renderBasketContent();
+}
+
+function decreaseAmountBasket(index_basket_dish) {
+    let basket_dish_index = "";
+    basket_dish_index = Object.entries(basket)[index_basket_dish][0];
+    if (basket[basket_dish_index].amount > 1){
+        basket[basket_dish_index].amount -= 1;
+    renderBasketContent();
+    } else {
+        deleteFromBasket(index_basket_dish)
+    }
+    
+}
+
+function deleteFromBasket(index_basket_dish) {
+    let basket_dish_index = "";
+    basket_dish_index = Object.entries(basket)[index_basket_dish][0];
+    delete basket[basket_dish_index];
+    renderBasketContent();
+}

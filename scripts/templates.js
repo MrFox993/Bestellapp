@@ -64,13 +64,13 @@ function getBasketContentHTMLTemplate(indexBasket) {
             <h3>${(Object.entries(basket)[indexBasket][1].name)}</h3>
             <div class="single_dish_basket_info">
             <div class="basket_dish_amount">
-                <button> - </button>
+                <button onclick="decreaseAmountBasket(${(indexBasket)})"> - </button>
                 <p>${(Object.entries(basket)[indexBasket][1].amount)}</p>
-                <button> + </button>
+                <button onclick="increaseAmountBasket(${(indexBasket)})"> + </button>
             </div>
             <div class="basket_dish_price">
                 <p>${(Object.entries(basket)[indexBasket][1].price).toFixed(2)} €</p>
-                <button>delete</button>
+                <button onclick="deleteFromBasket(${(indexBasket)})">delete</button>
             </div>
         </div>
         </div>
