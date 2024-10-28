@@ -39,6 +39,35 @@ hr.solid {
     padding: 0 16px;
     width: 236px;
 }
-.basket_content {
+#basket_content {
     padding: 0 16px;
+    width: 300px;
+}
+.single_dish_basket {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding-bottom: 16px;
+}
+.single_dish_basket_info {
+    display: flex;
+    gap: 40px;
+}
+.basket_dish_amount {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.basket_dish_price {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.single_dish_basket_info button {
+    width: 16px;
+    height: 16px;
+    font-size: 16px;
+    border: transparent;
+    color: #ff6600;
 }

@@ -48,6 +48,18 @@ function renderBasket() {
   basketWrapRef.innerHTML += getBasketWrapperHTMLTemplate();
 }
 
+function renderBasketContent() {
+  let basketContentRef = document.getElementById("basket_content");
+  basketContentRef.innerHTML = "";
+  for (
+    let basketIndex = 0;
+    basketIndex < Object.entries(basket).length;
+    basketIndex++
+  ) {
+    basketContentRef.innerHTML += getBasketContentHTMLTemplate(basketIndex);
+  }
+}
+
 function addToBasket(indexMenuCatagory, indexDish) {
   let basket_dish_index = `single_dish_${indexMenuCatagory}_${indexDish}`;
 
@@ -60,4 +72,5 @@ function addToBasket(indexMenuCatagory, indexDish) {
       amount: 1,
     };
   }
+  renderBasketContent();
 }

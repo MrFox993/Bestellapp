@@ -25,7 +25,7 @@ function getSingleDishesHTMLTemplate(indexMenuCatagory, indexDish){
     `;
 }
 
-function getBasketWrapperHTMLTemplate(){
+function getBasketWrapperHTMLTemplate() {
     return `
         <div id="basket">
             <h1>Warenkorb</h1>
@@ -33,7 +33,9 @@ function getBasketWrapperHTMLTemplate(){
                 <div class="basket_section_line">
                     <hr class="solid">
                 </div>
-                <div id="basket_content"></div>
+                <div id="basket_content">
+                <p>Fügen Sie etwas ihrem Warenkorb hinzu.</p>
+                </div>
                 <div class="basket_section_line">
                     <hr class="solid">
                 </div>
@@ -52,6 +54,25 @@ function getBasketWrapperHTMLTemplate(){
                     </div>
                 </div>
             </div>
+        </div>
+    `;
+}
+
+function getBasketContentHTMLTemplate(indexBasket) {
+    return `
+        <div class="single_dish_basket">
+            <h3>${(Object.entries(basket)[indexBasket][1].name)}</h3>
+            <div class="single_dish_basket_info">
+            <div class="basket_dish_amount">
+                <button> - </button>
+                <p>${(Object.entries(basket)[indexBasket][1].amount)}</p>
+                <button> + </button>
+            </div>
+            <div class="basket_dish_price">
+                <p>${(Object.entries(basket)[indexBasket][1].price).toFixed(2)} €</p>
+                <button>delete</button>
+            </div>
+        </div>
         </div>
     `;
 }
