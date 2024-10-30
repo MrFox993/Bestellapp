@@ -110,6 +110,7 @@ function deleteFromBasket(index_basket_dish) {
   basket_dish_index = Object.entries(basket)[index_basket_dish][0];
   delete basket[basket_dish_index];
   renderBasketContent();
+  calcBasketSubTotal();
 }
 
 function calcSingleDishSubTotal(index_basket_dish) {
