@@ -115,4 +115,10 @@ let menu = {
     ]
 };
 
-let basket = {};
+let basket = {
+    "calculation": [
+        {subTotal : 0,
+        delivery_price : 5,
+        total : 0}
+    ]
+};

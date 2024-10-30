@@ -34,7 +34,7 @@ function getBasketWrapperHTMLTemplate() {
                     <hr class="solid">
                 </div>
                 <div id="basket_content">
-                <p>Fügen Sie etwas ihrem Warenkorb hinzu.</p>
+                <p>Fügen Sie etwas ihrem <br> Warenkorb hinzu.</p>
                 </div>
                 <div class="basket_section_line">
                     <hr class="solid">
@@ -42,15 +42,15 @@ function getBasketWrapperHTMLTemplate() {
                 <div id="basket_calc">
                     <div class="single_basket_value">
                         <div>Zwischensumme</div>
-                        <div id="subtotal"></div>
+                        <div id="subtotal">${(basket.calculation[0].subTotal.toFixed(2))} €</div>
                     </div>
                     <div class="single_basket_value">
                         <div>Lieferkosten</div>
-                        <div id="delivery_price">5,00€</div>
+                        <div id="delivery_price">${(basket.calculation[0].delivery_price.toFixed(2))} €</div>
                     </div>
                     <div class="single_basket_value">
                         <div>Gesamtkosten</div>
-                        <div id="total_price"></div>
+                        <div id="total_price">${(basket.calculation[0].total.toFixed(2))} €</div>
                     </div>
                 </div>
             </div>
@@ -69,7 +69,7 @@ function getBasketContentHTMLTemplate(indexBasket) {
                 <button onclick="increaseAmountBasket(${(indexBasket)})"> + </button>
             </div>
             <div class="basket_dish_price">
-                <p>${(Object.entries(basket)[indexBasket][1].price).toFixed(2)} €</p>
+                <p>${(Object.entries(basket)[indexBasket][1].subtotal).toFixed(2)} €</p>
                 <button onclick="deleteFromBasket(${(indexBasket)})">delete</button>
             </div>
         </div>
