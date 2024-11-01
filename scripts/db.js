@@ -15,7 +15,8 @@ let menu = {
         {name: "Bruschetta alla Pizzaiola",
         price: 7.50,
         description: "Geröstetes Brot mit frischen Tomaten und Mozzarella überbacken",
-        }
+        },
+        {image: "./assets/img/antipasto-3484782_1280.jpg"}
     ],
     "Pasta":[
         {name: "Pappardelle Sfiziose",
@@ -33,7 +34,8 @@ let menu = {
         {name: "Ravioli con Salsa di Noci, Spinaci e Pinoli",
         price: 15.50,
         description: "Ravioli gefüllt mit Spinat und Ricotta an einer Walnusscreme mit Pinienkernen",
-        }
+        },
+        {image: "./assets/img/tagliatelle-1972845_1280.jpg"}
     ],
     "Insalate":[
         {name: "Mista Grande",
@@ -51,7 +53,8 @@ let menu = {
         {name: "Insalata Pollo",
         price: 14.00,
         description: "mit Feldsalat, Lollo Rosso, Kirschtomaten, Gurken, gebratenem Hähnchenbrustfilet, frischen Champignons und Croutinos",
-        }
+        },
+        {image: "./assets/img/vegetables-8176731_1280.jpg"}
     ],
     "Spaghetti":[
         {name: "Spaghetti Bolognese",
@@ -65,7 +68,8 @@ let menu = {
         {name: "Spaghetti Aglio, Olio e Peperoncino",
         price: 15.00,
         description: "mit Knoblauch, Gambas, Kirschtomaten und scharfen Peperoni",
-        }
+        },
+        {image: "./assets/img/spaghetti-4406130_1280.jpg"}
     ],
     "Rigatoni":[
         {name: "Rigatoni ai 4 Formaggi",
@@ -75,7 +79,8 @@ let menu = {
         {name: "Rigatoni con Broccoli e Gamberetti",
         price: 11.50,
         description: "mit Broccoli, Krabben, Knoblauch und Sahne",
-        }
+        },
+        {image: "./assets/img/pasta-1264056_1280.jpg"}
     ],
     "Tortellini":[
         {name: "Tortellini alla Panna",
@@ -89,7 +94,8 @@ let menu = {
         {name: "Tortellini Gorgonzola",
         price: 11.00,
         description: "mit Gorgonzolakäse",
-        }
+        },
+        {image: "./assets/img/tortellini-357887_1280.jpg"}
     ],
     "Pizza":[
         {name: "Margherita",
@@ -111,7 +117,8 @@ let menu = {
         {name: "Tonno Cipolla",
         price: 10.50,
         description: "Tomatensoße, Thunfisch, Zwiebeln und Käse",
-        }
+        },
+        {image: "./assets/img/pizza-2341377_1280.jpg"}
     ]
 };
 

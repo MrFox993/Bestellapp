@@ -36,7 +36,7 @@ function renderDishes(indexMenuCatagory) {
   // singleDishRef.innerHTML = "";
   for (
     let indexDish = 0;
-    indexDish < Object.entries(menu)[indexMenuCatagory][1].length;
+    indexDish < (Object.entries(menu)[indexMenuCatagory][1].length - 1);
     indexDish++
   ) {
     singleDishRef.innerHTML += getSingleDishesHTMLTemplate(
@@ -143,17 +143,28 @@ function calcBasketSubTotal() {
 }
 
 function calcBasketTotal() {
-  Object.entries(basket)[indexBasketCalculation][
-    indexBasketCalculationData
-  ][0].total =
-    Object.entries(basket)[indexBasketCalculation][
-      indexBasketCalculationData
-    ][0].subTotal +
-    Object.entries(basket)[indexBasketCalculation][
-      indexBasketCalculationData
-    ][0].delivery_price;
-  renderBasket();
-  renderBasketContent();
+    if (Object.entries(basket)[indexBasketCalculation][
+        indexBasketCalculationData
+      ][0].subTotal != 0){
+        Object.entries(basket)[indexBasketCalculation][
+            indexBasketCalculationData
+          ][0].total =
+            Object.entries(basket)[indexBasketCalculation][
+              indexBasketCalculationData
+            ][0].subTotal +
+            Object.entries(basket)[indexBasketCalculation][
+              indexBasketCalculationData
+            ][0].delivery_price;
+          renderBasket();
+          renderBasketContent();
+      } else{
+        Object.entries(basket)[indexBasketCalculation][
+            indexBasketCalculationData
+          ][0].total = 0;
+        renderBasket();
+        renderBasketContent();
+      }
+
 }
 
 function emptyBasket() {

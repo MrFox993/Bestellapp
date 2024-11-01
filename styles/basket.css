@@ -6,14 +6,15 @@
 #basket {
   width: 100%;
   height: 820px;
-  background-color: #f7f6f3;
+  background-color: lightgray;
+  border-radius: 8px;
   position: sticky;
   top: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 16px;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 .inner_basket {
   display: flex;
@@ -64,28 +65,34 @@ hr.solid {
 }
 .basket_dish_amount {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-evenly;
 }
 .basket_dish_price {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-evenly;
 }
 .single_dish_basket_info button {
   width: 24px;
   height: 24px;
   font-size: 24px;
-  border: transparent;
+  border: lightgray;
+  background-color: lightgray;
   color: #ff6600;
   padding: 0;
   margin: 0 8px;
 }
 .single_dish_basket_info button:hover {
   text-decoration: underline;
-  background-color: transparent;
+  background-color: lightgray;
+}
+.basket_dish_price button:hover {
+    background-color: #ff6600;
 }
 .trash_button_img {
   width: 16px;
   height: 16px;
 }
+
+/* TODO Responsive basket section */

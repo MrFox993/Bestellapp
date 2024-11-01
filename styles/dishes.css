@@ -1,34 +1,43 @@
 .dishes {
-    max-width: 1920px;
+  max-width: 1920px;
+  background-color: lightgray;
+  border-radius: 8px;
 }
 
 .dishes h1 {
-    padding: 16px;
+  padding: 16px;
+}
+
+.catagory_image {
+    max-width: 1920px;
+    width: 400px;
+    height: 320px;
+    padding-left: 16px;
 }
 
 .single_dish {
-    padding: 32px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #F7F6F3;
-    border-radius: 8px;
-    margin-bottom: 10px;
+  padding: 32px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: lightgray;
+  border-radius: 8px;
+  margin-bottom: 10px;
 }
 
 .dish_information {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
 }
 
 .dish_description {
-    max-width: 340px;
+  max-width: 340px;
 }
 
 .dish_price {
-    color: #ff6600;
+  color: #ff6600;
 }

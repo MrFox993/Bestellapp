@@ -8,6 +8,7 @@ function getDishesCatagoryHTMLTemplate(indexMenuCatagory){
     return `
             <div id="dishes_catagory_${(indexMenuCatagory)}" class="dishes">
                 <h1>${(Object.keys(menu)[indexMenuCatagory])}</h1>
+                <img class="catagory_image" src="${(Object.entries(menu)[indexMenuCatagory][1][(Object.entries(menu)[indexMenuCatagory][1].length - 1)].image)}" alt="catagory_image">
             </div>
     `;
 }
@@ -57,6 +58,7 @@ function getBasketWrapperHTMLTemplate() {
         </div>
     `;
 }
+// TODO switch for delivery or take away
 
 function getBasketContentHTMLTemplate(indexBasket) {
     return `
