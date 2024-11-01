@@ -70,7 +70,7 @@ function getBasketContentHTMLTemplate(indexBasket) {
             </div>
             <div class="basket_dish_price">
                 <p>${(Object.entries(basket)[indexBasket][1].subtotal).toFixed(2)} €</p>
-                <button onclick="deleteFromBasket(${(indexBasket)})">delete</button>
+                <button onclick="deleteFromBasket(${(indexBasket)})"><img class="trash_button_img" src="./assets/icons/trash_icon.png" alt="trash_icon"></button>
             </div>
         </div>
         </div>

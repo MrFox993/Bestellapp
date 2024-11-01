@@ -111,6 +111,7 @@ function deleteFromBasket(index_basket_dish) {
   delete basket[basket_dish_index];
   renderBasketContent();
   calcBasketSubTotal();
+  emptyBasket()
 }
 
 function calcSingleDishSubTotal(index_basket_dish) {
@@ -153,4 +154,11 @@ function calcBasketTotal() {
     ][0].delivery_price;
   renderBasket();
   renderBasketContent();
+}
+
+function emptyBasket() {
+    let basketContentRef = document.getElementById('basket_content');
+    if (basketContentRef.innerHTML == null || basketContentRef.innerHTML == "") {
+        basketContentRef.innerHTML = "Fügen Sie etwas ihrem <br> Warenkorb hinzu."
+    }
 }
