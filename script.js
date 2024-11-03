@@ -173,3 +173,5 @@ function emptyBasket() {
         basketContentRef.innerHTML = "Fügen Sie etwas ihrem <br> Warenkorb hinzu."
     }
 }
+
+// TODO function order basket with feedback (no alert)
