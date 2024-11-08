@@ -125,8 +125,8 @@ let menu = {
 let basket = {
     "calculation": [
         {subTotal : 0,
-        delivery_price : 0,
-        delivery_choice : false,
+        delivery_price : 5,
+        delivery_choice : true,
         total : 0}
     ]
 };

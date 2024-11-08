@@ -149,7 +149,6 @@ function calcBasketSubTotal() {
       indexBasketCalculationData
     ][0].subTotal += Object.entries(basket)[indexDishBasket][1].subtotal;
   }
-  calcBasketDeliveryPrice();
   calcBasketTotal();
 }
 
