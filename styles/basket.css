@@ -98,6 +98,7 @@ hr.solid {
     width: 236px;
     font-size: 24px;
     background-color: #ff6600;
+    cursor: pointer;
 }
 form {
     display: flex;

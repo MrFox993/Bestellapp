@@ -36,7 +36,7 @@ function renderDishes(indexMenuCatagory) {
   // singleDishRef.innerHTML = "";
   for (
     let indexDish = 0;
-    indexDish < (Object.entries(menu)[indexMenuCatagory][1].length - 1);
+    indexDish < Object.entries(menu)[indexMenuCatagory][1].length - 1;
     indexDish++
   ) {
     singleDishRef.innerHTML += getSingleDishesHTMLTemplate(
@@ -64,6 +64,12 @@ function renderBasketContent() {
   }
 }
 
+function renderDeliveryChoice() {
+    let deliveryChoiceRef = document.getElementById("delivery_choice");
+    let deliveryChoiceChecked = deliveryChoiceRef.checked;
+    deliveryChoiceRef.innerHTML = deliveryChoiceChecked;
+}
+
 function addToBasket(indexMenuCatagory, indexDish) {
   let basket_dish_index = `single_dish_${indexMenuCatagory}_${indexDish}`;
   let indexBasketDish = indexDish + 1;
@@ -81,6 +87,7 @@ function addToBasket(indexMenuCatagory, indexDish) {
   }
   calcBasketSubTotal();
   renderBasketContent();
+//   renderDeliveryChoice();
 }
 
 function increaseAmountBasket(index_basket_dish) {
@@ -90,6 +97,7 @@ function increaseAmountBasket(index_basket_dish) {
   calcSingleDishSubTotal(index_basket_dish);
   calcBasketSubTotal();
   renderBasketContent();
+//   renderDeliveryChoice();
 }
 
 function decreaseAmountBasket(index_basket_dish) {
@@ -100,6 +108,7 @@ function decreaseAmountBasket(index_basket_dish) {
     calcSingleDishSubTotal(index_basket_dish);
     calcBasketSubTotal();
     renderBasketContent();
+    // renderDeliveryChoice();
   } else {
     deleteFromBasket(index_basket_dish);
   }
@@ -111,7 +120,8 @@ function deleteFromBasket(index_basket_dish) {
   delete basket[basket_dish_index];
   renderBasketContent();
   calcBasketSubTotal();
-  emptyBasket()
+//   renderDeliveryChoice();
+  emptyBasket();
 }
 
 function calcSingleDishSubTotal(index_basket_dish) {
@@ -139,39 +149,55 @@ function calcBasketSubTotal() {
       indexBasketCalculationData
     ][0].subTotal += Object.entries(basket)[indexDishBasket][1].subtotal;
   }
+  calcBasketDeliveryPrice();
   calcBasketTotal();
 }
 
 function calcBasketTotal() {
-    if (Object.entries(basket)[indexBasketCalculation][
+  if (
+    Object.entries(basket)[indexBasketCalculation][
+      indexBasketCalculationData
+    ][0].subTotal != 0
+  ) {
+    Object.entries(basket)[indexBasketCalculation][
+      indexBasketCalculationData
+    ][0].total =
+      Object.entries(basket)[indexBasketCalculation][
         indexBasketCalculationData
-      ][0].subTotal != 0){
-        Object.entries(basket)[indexBasketCalculation][
-            indexBasketCalculationData
-          ][0].total =
-            Object.entries(basket)[indexBasketCalculation][
-              indexBasketCalculationData
-            ][0].subTotal +
-            Object.entries(basket)[indexBasketCalculation][
-              indexBasketCalculationData
-            ][0].delivery_price;
-          renderBasket();
-          renderBasketContent();
-      } else{
-        Object.entries(basket)[indexBasketCalculation][
-            indexBasketCalculationData
-          ][0].total = 0;
-        renderBasket();
-        renderBasketContent();
-      }
-
+      ][0].subTotal +
+      Object.entries(basket)[indexBasketCalculation][
+        indexBasketCalculationData
+      ][0].delivery_price;
+    renderBasket();
+    renderBasketContent();
+  } else {
+    Object.entries(basket)[indexBasketCalculation][
+      indexBasketCalculationData
+    ][0].total = 0;
+    renderBasket();
+    // renderDeliveryChoice();
+    renderBasketContent();
+  }
 }
 
 function emptyBasket() {
-    let basketContentRef = document.getElementById('basket_content');
-    if (basketContentRef.innerHTML == null || basketContentRef.innerHTML == "") {
-        basketContentRef.innerHTML = "Fügen Sie etwas ihrem <br> Warenkorb hinzu."
-    }
+  let basketContentRef = document.getElementById("basket_content");
+  if (basketContentRef.innerHTML == null || basketContentRef.innerHTML == "") {
+    basketContentRef.innerHTML = "Fügen Sie etwas ihrem <br> Warenkorb hinzu.";
+  }
+}
+
+function calcBasketDeliveryPrice() {
+  let deliveryChoiceRef = document.getElementById("delivery_choice");
+  let deliveryChoiceChecked = deliveryChoiceRef["checked"];
+  let basketDeliveryPrice = document.getElementById("delivery_price");
+  if (deliveryChoiceChecked === false) {
+    basket.calculation[0].delivery_price = 0;
+    basket.calculation[0].delivery_choice = false;
+  } else {
+    basket.calculation[0].delivery_price = 5;
+    basket.calculation[0].delivery_choice = true;
+  }
 }
 
 // TODO function order basket with feedback (no alert)
