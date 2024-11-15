@@ -208,16 +208,24 @@ function calcBasketDeliveryPrice() {
 }
 
 function showOverlay() {
-  document.getElementById("overlay_basket_message").style.display = "flex";
+  let overlayBasketMessageRef = document.getElementById('overlay_basket_message');
+  let overlayBasketMessageTextRef = document.getElementById('overlay_basket_message_text');
+  if (basket.calculation[0].total != 0) {
+    overlayBasketMessageRef.style.display = "flex";
+    overlayBasketMessageTextRef.innerText = "Ihre Bestellung wird nun bearbeitet."
+    basket = {
+      calculation: [
+        { subTotal: 0, delivery_price: 5, delivery_choice: true, total: 0 },
+      ],
+    };
+    console.log("Warenkorb wurde geleert:", basket);
+    calcBasketSubTotal();
+    emptyBasket();
+  } else {
+    overlayBasketMessageRef.style.display = "flex";
+    overlayBasketMessageTextRef.innerText = "Fügen Sie etwas ihrem Warenkorb hinzu."
+  }
 
-  basket = {
-    calculation: [
-      { subTotal: 0, delivery_price: 5, delivery_choice: true, total: 0 },
-    ],
-  };
-  console.log("Warenkorb wurde geleert:", basket);
-  calcBasketSubTotal();
-  emptyBasket();
 }
 
 function closeOverlay() {
