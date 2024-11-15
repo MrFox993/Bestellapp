@@ -72,7 +72,7 @@ function getBasketWrapperHTMLTemplate() {
                                 2
                                 )} €</div>
                             </div>
-                            <div><button type="submit" class="basket_order_button" name="submit">Bestellung abschicken</button></div>
+                            <div><button onclick="showOverlay()" type="submit" class="basket_order_button" name="submit">Bestellung abschicken</button></div>
                     </div>
                 </div>
         </div>

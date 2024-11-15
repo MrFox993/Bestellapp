@@ -65,9 +65,9 @@ function renderBasketContent() {
 }
 
 function renderDeliveryChoice() {
-    let deliveryChoiceRef = document.getElementById("delivery_choice");
-    let deliveryChoiceChecked = deliveryChoiceRef.checked;
-    deliveryChoiceRef.innerHTML = deliveryChoiceChecked;
+  let deliveryChoiceRef = document.getElementById("delivery_choice");
+  let deliveryChoiceChecked = deliveryChoiceRef.checked;
+  deliveryChoiceRef.innerHTML = deliveryChoiceChecked;
 }
 
 function addToBasket(indexMenuCatagory, indexDish) {
@@ -87,7 +87,7 @@ function addToBasket(indexMenuCatagory, indexDish) {
   }
   calcBasketSubTotal();
   renderBasketContent();
-//   renderDeliveryChoice();
+  //   renderDeliveryChoice();
 }
 
 function increaseAmountBasket(index_basket_dish) {
@@ -97,7 +97,7 @@ function increaseAmountBasket(index_basket_dish) {
   calcSingleDishSubTotal(index_basket_dish);
   calcBasketSubTotal();
   renderBasketContent();
-//   renderDeliveryChoice();
+  //   renderDeliveryChoice();
 }
 
 function decreaseAmountBasket(index_basket_dish) {
@@ -120,7 +120,7 @@ function deleteFromBasket(index_basket_dish) {
   delete basket[basket_dish_index];
   renderBasketContent();
   calcBasketSubTotal();
-//   renderDeliveryChoice();
+  //   renderDeliveryChoice();
   emptyBasket();
 }
 
@@ -199,4 +199,19 @@ function calcBasketDeliveryPrice() {
   }
 }
 
-// TODO function order basket with feedback (no alert)
+function showOverlay() {
+  document.getElementById("overlay").style.display = "flex";
+
+  basket = {
+    calculation: [
+      { subTotal: 0, delivery_price: 5, delivery_choice: true, total: 0 },
+    ],
+  };
+  console.log("Warenkorb wurde geleert:", basket);
+  calcBasketSubTotal();
+  emptyBasket();
+}
+
+function closeOverlay() {
+  document.getElementById("overlay").style.display = "none";
+}

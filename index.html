@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="./styles/assets.css" />
     <link rel="stylesheet" href="./styles/footer.css" />
     <link rel="stylesheet" href="./styles/basket.css">
+    <link rel="stylesheet" href="./styles/overlay.css">
 
     <script src="./scripts/db.js"></script>
     <script src="./scripts/templates.js"></script>
@@ -56,6 +57,12 @@
             </div>
             <div id="basket_wrap" class="basket_wrap">
             </div>
+            <div id="overlay" class="overlay">
+              <div class="overlay-content">
+                  <h2>Ihre Bestellung wurde abgeschickt</h2>
+                  <button onclick="closeOverlay()" id="closeButton">Schließen</button>
+              </div>
+          </div>
         </div>
     </main>
     <footer>
