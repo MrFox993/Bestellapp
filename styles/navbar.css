@@ -1,15 +1,38 @@
 nav {
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    height: 3dvh;
-    padding: 0 32px;
-    margin-bottom: 20px;
+    flex-direction: row; /* Stack items vertically by default */
+    align-items: flex-start; /* Align items to the start */
+    justify-content: flex-start;
+    height: 9dvh; /* Full viewport height */
+    padding: 16px;
+    margin-bottom: 0; /* Avoid pushing down other sections */
+    overflow-y: auto; /* Enables vertical scrolling if content overflows */
+    scrollbar-width: thin; /* Thinner scrollbar for Firefox */
 }
+
+/* Styling the scrollbar for WebKit-based browsers */
+nav::-webkit-scrollbar {
+    width: 12px; /* Adjust the width of the scrollbar */
+}
+
+nav::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Background of the scrollbar track */
+}
+
+nav::-webkit-scrollbar-thumb {
+    background: #888; /* Color of the scrollbar thumb */
+    border-radius: 4px; /* Rounded edges for a modern look */
+}
+
+nav::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Darker color when hovered */
+}
+
 nav a {
     text-decoration: none;
     color: grey;
+    padding: 8px; /* Adds padding for better touch targets */
+    font-size: 1rem; /* Use relative units for better scaling */
 }
 
 nav a:hover {
