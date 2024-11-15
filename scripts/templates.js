@@ -54,31 +54,25 @@ function getBasketWrapperHTMLTemplate() {
                     <hr class="solid">
                 </div>
                     <div id="basket_calc">
-                        <form
-                        action="https://formspree.io/f/xanyeaao"
-                        method="POST"
-                        target="_blank"
-                        >
                             <div class="single_basket_value">
-                                <label for="subtotal">Zwischensumme</label>
-                                <output name="subtotal" id="subtotal">${basket.calculation[0].subTotal.toFixed(
+                                <div for="subtotal">Zwischensumme</div>
+                                <div name="subtotal" id="subtotal">${basket.calculation[0].subTotal.toFixed(
                                 2
-                                )} €</input>
+                                )} €</div>
                             </div>
                             <div class="single_basket_value">
-                                <label for="delivery_price">Lieferkosten</label>
-                                <output name="delivery_price" id="delivery_price">${basket.calculation[0].delivery_price.toFixed(
+                                <div for="delivery_price">Lieferkosten</div>
+                                <div name="delivery_price" id="delivery_price">${basket.calculation[0].delivery_price.toFixed(
                                 2
-                                )} €</input>
+                                )} €</div>
                             </div>
                             <div class="single_basket_value">
-                                <label for="total_price">Gesamtkosten</label>
-                                <output name="total_price" id="total_price">${basket.calculation[0].total.toFixed(
+                                <div for="total_price">Gesamtkosten</div>
+                                <div name="total_price" id="total_price">${basket.calculation[0].total.toFixed(
                                 2
-                                )} €</input>
+                                )} €</div>
                             </div>
                             <div><button type="submit" class="basket_order_button" name="submit">Bestellung abschicken</button></div>
-                        </form>
                     </div>
                 </div>
         </div>
