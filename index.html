@@ -22,8 +22,8 @@
     <link rel="stylesheet" href="./styles/overlay.css">
 
     <script src="./scripts/db.js"></script>
-    <script src="./scripts/templates.js"></script>
-    <script src="./script.js"></script>
+    <script src="./scripts/templates.js" defer></script>
+    <script src="./script.js" defer></script>
   </head>
   <body onload="init()">
     <header>
@@ -59,7 +59,7 @@
             </div>
             <div id="overlay" class="overlay">
               <div class="overlay-content">
-                  <h2>Ihre Bestellung wurde abgeschickt</h2>
+                  <h2>Ihre Bestellung wird nun bearbeitet.</h2>
                   <button onclick="closeOverlay()" id="closeButton">Schließen</button>
               </div>
           </div>

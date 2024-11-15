@@ -8,11 +8,10 @@
   padding: 16px;
 }
 
-.catagory_image {
-    max-width: 1920px;
-    width: 400px;
-    height: 320px;
-    padding-left: 16px;
+.catagory_image_bg {
+  background-size: cover;
+  background-position: center;
+  height: 200px;
 }
 
 .single_dish {

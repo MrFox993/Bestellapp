@@ -25,8 +25,16 @@ function renderMenuCatagory() {
     indexMenuCatagory++
   ) {
     contentRef.innerHTML += getDishesCatagoryHTMLTemplate(indexMenuCatagory);
+    renderMenuCatagoryImage(indexMenuCatagory);
     renderDishes(indexMenuCatagory);
   }
+}
+function renderMenuCatagoryImage(indexMenuCatagory) {
+  let menuCatagoryImageRef = document.getElementById(`catagory_image_${(indexMenuCatagory)}`);
+  menuCatagoryImageRef.innerHTML = "";
+  menuCatagoryImageRef.style.backgroundImage = `url('${(Object.entries(menu)[indexMenuCatagory][1][
+    Object.entries(menu)[indexMenuCatagory][1].length - 1
+  ].image)}')`;
 }
 
 function renderDishes(indexMenuCatagory) {
