@@ -208,7 +208,7 @@ function calcBasketDeliveryPrice() {
 }
 
 function showOverlay() {
-  document.getElementById("overlay").style.display = "flex";
+  document.getElementById("overlay_basket_message").style.display = "flex";
 
   basket = {
     calculation: [
@@ -221,5 +221,5 @@ function showOverlay() {
 }
 
 function closeOverlay() {
-  document.getElementById("overlay").style.display = "none";
+  document.getElementById("overlay_basket_message").style.display = "none";
 }

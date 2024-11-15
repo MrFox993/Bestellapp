@@ -1,4 +1,4 @@
-.overlay {
+.overlay_basket_message {
     display: none; /* Zu Beginn versteckt */
     position: fixed;
     top: 0;
@@ -11,7 +11,7 @@
     z-index: 1000;
 }
 
-.overlay-content {
+.overlay_basket_message_content {
     background: white;
     padding: 20px;
     border-radius: 16px;
