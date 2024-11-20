@@ -30,11 +30,15 @@ function renderMenuCatagory() {
   }
 }
 function renderMenuCatagoryImage(indexMenuCatagory) {
-  let menuCatagoryImageRef = document.getElementById(`catagory_image_${(indexMenuCatagory)}`);
+  let menuCatagoryImageRef = document.getElementById(
+    `catagory_image_${indexMenuCatagory}`
+  );
   menuCatagoryImageRef.innerHTML = "";
-  menuCatagoryImageRef.style.backgroundImage = `url('${(Object.entries(menu)[indexMenuCatagory][1][
-    Object.entries(menu)[indexMenuCatagory][1].length - 1
-  ].image)}')`;
+  menuCatagoryImageRef.style.backgroundImage = `url('${
+    Object.entries(menu)[indexMenuCatagory][1][
+      Object.entries(menu)[indexMenuCatagory][1].length - 1
+    ].image
+  }')`;
 }
 
 function renderDishes(indexMenuCatagory) {
@@ -208,24 +212,28 @@ function calcBasketDeliveryPrice() {
 }
 
 function showOverlay() {
-  let overlayBasketMessageRef = document.getElementById('overlay_basket_message');
-  let overlayBasketMessageTextRef = document.getElementById('overlay_basket_message_text');
+  let overlayBasketMessageRef = document.getElementById(
+    "overlay_basket_message"
+  );
+  let overlayBasketMessageTextRef = document.getElementById(
+    "overlay_basket_message_text"
+  );
   if (basket.calculation[0].total != 0) {
     overlayBasketMessageRef.style.display = "flex";
-    overlayBasketMessageTextRef.innerText = "Ihre Bestellung wird nun bearbeitet."
+    overlayBasketMessageTextRef.innerText = `Vielen Dank für Ihre Bestellung.
+    Ihre Bestellung wird nun bearbeitet.`;
     basket = {
       calculation: [
         { subTotal: 0, delivery_price: 5, delivery_choice: true, total: 0 },
       ],
     };
-    console.log("Warenkorb wurde geleert:", basket);
     calcBasketSubTotal();
     emptyBasket();
   } else {
     overlayBasketMessageRef.style.display = "flex";
-    overlayBasketMessageTextRef.innerText = "Fügen Sie etwas ihrem Warenkorb hinzu."
+    overlayBasketMessageTextRef.innerText =
+      "Fügen Sie etwas ihrem Warenkorb hinzu.";
   }
-
 }
 
 function closeOverlay() {
