@@ -109,6 +109,7 @@ function increaseAmountBasket(index_basket_dish) {
   calcSingleDishSubTotal(index_basket_dish);
   calcBasketSubTotal();
   renderBasketContent();
+  renderBasketContentResponsive();
   //   renderDeliveryChoice();
 }
 
@@ -120,6 +121,7 @@ function decreaseAmountBasket(index_basket_dish) {
     calcSingleDishSubTotal(index_basket_dish);
     calcBasketSubTotal();
     renderBasketContent();
+    renderBasketContentResponsive();
     // renderDeliveryChoice();
   } else {
     deleteFromBasket(index_basket_dish);
@@ -131,6 +133,7 @@ function deleteFromBasket(index_basket_dish) {
   basket_dish_index = Object.entries(basket)[index_basket_dish][0];
   delete basket[basket_dish_index];
   renderBasketContent();
+  renderBasketContentResponsive();
   calcBasketSubTotal();
   //   renderDeliveryChoice();
   emptyBasket();
@@ -195,6 +198,12 @@ function emptyBasket() {
   let basketContentRef = document.getElementById("basket_content");
   if (basketContentRef.innerHTML == null || basketContentRef.innerHTML == "") {
     basketContentRef.innerHTML = "Fügen Sie etwas ihrem <br> Warenkorb hinzu.";
+  }
+}
+function emptyBasketResponsive() {
+  let basketContentResponsiveRef = document.getElementById('basketContentResponsive');
+  if (basketContentResponsiveRef.innerHTML == null || basketContentResponsiveRef == "") {
+    basketContentResponsiveRef.innerHTML = "Fügen Sie etwas ihrem <br> Warenkorb hinzu."
   }
 }
 

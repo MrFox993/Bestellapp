@@ -207,7 +207,15 @@ form {
     text-align: center;
     position: relative;
 }
-/* TODO Responsive basket section */
+
+#basketResponsive {
+  background-color: lightgray;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 16px 0;
+}
 
 @media (min-width: 721px) and (max-width: 900px) {
   .single_dish_basket_info {
