@@ -87,15 +87,15 @@ function getBasketContentHTMLTemplate(indexBasket) {
             <h3>${Object.entries(basket)[indexBasket][1].name}</h3>
             <div class="single_dish_basket_info">
             <div class="basket_dish_amount">
-                <button onclick="decreaseAmountBasket(${indexBasket})"> - </button>
+                <button onclick="decreaseAmountBasket(${indexBasket}, event)"> - </button>
                 <p>${Object.entries(basket)[indexBasket][1].amount}</p>
-                <button onclick="increaseAmountBasket(${indexBasket})"> + </button>
+                <button onclick="increaseAmountBasket(${indexBasket}, event)"> + </button>
             </div>
             <div class="basket_dish_price">
                 <p>${Object.entries(basket)[indexBasket][1].subtotal.toFixed(
                   2
                 )} €</p>
-                <button onclick="deleteFromBasket(${indexBasket})"><img class="trash_button_img" src="./assets/icons/trash_icon.png" alt="trash_icon"></button>
+                <button onclick="deleteFromBasket(${indexBasket}, event)"><img class="trash_button_img" src="./assets/icons/trash_icon.png" alt="trash_icon"></button>
             </div>
         </div>
         </div>

@@ -64,7 +64,7 @@
               </div>
           </div>
           <button onclick="showBasketOverlay()" id="showBasketButton">Warenkorb anzeigen</button>
-          <div id="basketOverlay" class="overlay_basket_content">
+          <div onclick="closeBasketOverlay()" id="basketOverlay" class="overlay_basket_content">
             <div class="basket_content_wrapper_responsive" id="basketContentWrapperResponsive">
                 <span onclick="closeBasketOverlay()" id="closeBasketButton" class="close_basket_button">&times;</span>
                 <div id="innerBasketResponsive">Fügen Sie etwas ihrem Warenkorb hinzu.</div>

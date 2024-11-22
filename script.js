@@ -102,7 +102,7 @@ function addToBasket(indexMenuCatagory, indexDish) {
   //   renderDeliveryChoice();
 }
 
-function increaseAmountBasket(index_basket_dish) {
+function increaseAmountBasket(index_basket_dish, event) {
   let basket_dish_index = "";
   basket_dish_index = Object.entries(basket)[index_basket_dish][0];
   basket[basket_dish_index].amount += 1;
@@ -111,9 +111,10 @@ function increaseAmountBasket(index_basket_dish) {
   renderBasketContent();
   renderBasketContentResponsive();
   //   renderDeliveryChoice();
+  event.stopPropagation();
 }
 
-function decreaseAmountBasket(index_basket_dish) {
+function decreaseAmountBasket(index_basket_dish, event) {
   let basket_dish_index = "";
   basket_dish_index = Object.entries(basket)[index_basket_dish][0];
   if (basket[basket_dish_index].amount > 1) {
@@ -123,12 +124,13 @@ function decreaseAmountBasket(index_basket_dish) {
     renderBasketContent();
     renderBasketContentResponsive();
     // renderDeliveryChoice();
+    event.stopPropagation();
   } else {
     deleteFromBasket(index_basket_dish);
   }
 }
 
-function deleteFromBasket(index_basket_dish) {
+function deleteFromBasket(index_basket_dish, event) {
   let basket_dish_index = "";
   basket_dish_index = Object.entries(basket)[index_basket_dish][0];
   delete basket[basket_dish_index];
@@ -137,6 +139,8 @@ function deleteFromBasket(index_basket_dish) {
   calcBasketSubTotal();
   //   renderDeliveryChoice();
   emptyBasket();
+  emptyBasketResponsive();
+  event.stopPropagation();
 }
 
 function calcSingleDishSubTotal(index_basket_dish) {
