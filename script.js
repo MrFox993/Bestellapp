@@ -206,8 +206,8 @@ function emptyBasket() {
 }
 function emptyBasketResponsive() {
   let basketContentResponsiveRef = document.getElementById('basketContentResponsive');
-  if (basketContentResponsiveRef.innerHTML == null || basketContentResponsiveRef == "") {
-    basketContentResponsiveRef.innerHTML = "Fügen Sie etwas ihrem <br> Warenkorb hinzu."
+  if (basketContentResponsiveRef.innerHTML == null || basketContentResponsiveRef.innerHTML == "") {
+    basketContentResponsiveRef.innerHTML = "Fügen Sie etwas ihrem Warenkorb hinzu."
   }
 }
 
@@ -242,6 +242,7 @@ function showOverlayBasketMessage() {
     };
     calcBasketSubTotal();
     emptyBasket();
+    emptyBasketResponsive();
   } else {
     overlayBasketMessageRef.style.display = "flex";
     overlayBasketMessageTextRef.innerText =
@@ -256,7 +257,8 @@ function closeBasketMessage() {
 function showBasketOverlay() {
   let basketOverlayRef = document.getElementById('basketOverlay');
   basketOverlayRef.style.display = "flex";
-  renderBasketOverlay()
+  renderBasketOverlay();
+  emptyBasketResponsive();
 }
 
 function closeBasketOverlay() {
@@ -273,12 +275,17 @@ function renderBasketOverlay() {
 
 function renderBasketContentResponsive() {
   let basketContentResponsiveRef = document.getElementById('basketContentResponsive');
-  basketContentResponsiveRef.innerHTML = "";
-  for (
-    let basketIndex = 1;
-    basketIndex < Object.entries(basket).length;
-    basketIndex++
-  ) {
-    basketContentResponsiveRef.innerHTML += getBasketContentHTMLTemplate(basketIndex);
+  if (basketContentResponsiveRef != null) {
+    basketContentResponsiveRef.innerHTML = "";
+    for (
+      let basketIndex = 1;
+      basketIndex < Object.entries(basket).length;
+      basketIndex++
+    ) {
+      basketContentResponsiveRef.innerHTML += getBasketContentHTMLTemplate(basketIndex);
+    }
+  } else {
+    return
   }
+
 }
