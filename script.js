@@ -211,7 +211,7 @@ function calcBasketDeliveryPrice() {
   }
 }
 
-function showOverlay() {
+function showOverlayBasketMessage() {
   let overlayBasketMessageRef = document.getElementById(
     "overlay_basket_message"
   );
@@ -236,6 +236,36 @@ function showOverlay() {
   }
 }
 
-function closeOverlay() {
+function closeBasketMessage() {
   document.getElementById("overlay_basket_message").style.display = "none";
+}
+
+function showBasketOverlay() {
+  let basketOverlayRef = document.getElementById('basketOverlay');
+  basketOverlayRef.style.display = "flex";
+  renderBasketOverlay()
+}
+
+function closeBasketOverlay() {
+  let basketOverlayRef = document.getElementById('basketOverlay');
+  basketOverlayRef.style.display = "none";
+}
+
+function renderBasketOverlay() {
+  let basketContentResponsiveRef = document.getElementById('innerBasketResponsive');
+  basketContentResponsiveRef.innerHTML = "";
+  basketContentResponsiveRef.innerHTML += getBasketWrapperResponsiveHTMLTemplate();
+  renderBasketContentResponsive()
+}
+
+function renderBasketContentResponsive() {
+  let basketContentResponsiveRef = document.getElementById('basketContentResponsive');
+  basketContentResponsiveRef.innerHTML = "";
+  for (
+    let basketIndex = 1;
+    basketIndex < Object.entries(basket).length;
+    basketIndex++
+  ) {
+    basketContentResponsiveRef.innerHTML += getBasketContentHTMLTemplate(basketIndex);
+  }
 }

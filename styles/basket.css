@@ -193,9 +193,23 @@ form {
   .toggle input:checked~.labels::before {
     opacity: 1;
   }
+
+  #showBasketButton {
+    display: none; 
+  }
+
+  .basket_content_wrapper_responsive {
+    background: #fff;
+    padding: 20px;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 8px;
+    text-align: center;
+    position: relative;
+}
 /* TODO Responsive basket section */
 
-@media (min-width: 720px) and (max-width: 900px) {
+@media (min-width: 721px) and (max-width: 900px) {
   .single_dish_basket_info {
     width: 240px;
   }
@@ -205,4 +219,33 @@ form {
   .single_basket_value {
     width: 260px;
   }
+}
+
+@media (min-width: 320px) and (max-width: 720px) {
+  #showBasketButton {
+      display: block;
+      position: fixed; 
+      bottom: 32px; 
+      left: 50%; 
+      transform: translateX(-50%); 
+      padding: 0 8px;
+      background-color: #ff6600; 
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      z-index: 1000; 
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      width: 80%;
+      margin: 0;
+  }
+
+  .basket_wrap {
+    display: none;
+  }
+
+  .full_content_wrap {
+    width: 100%;
+  }
+
 }

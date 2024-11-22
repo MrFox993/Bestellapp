@@ -68,7 +68,7 @@ function getBasketWrapperHTMLTemplate() {
                                 2
                                 )} €</div>
                             </div>
-                            <div><button onclick="showOverlay()" type="submit" class="basket_order_button" name="submit">Bestellung abschicken</button></div>
+                            <div><button onclick="showOverlayBasketMessage()" type="submit" class="basket_order_button" name="submit">Bestellung abschicken</button></div>
                     </div>
                 </div>
         </div>
@@ -98,6 +98,46 @@ function getBasketContentHTMLTemplate(indexBasket) {
                 <button onclick="deleteFromBasket(${indexBasket})"><img class="trash_button_img" src="./assets/icons/trash_icon.png" alt="trash_icon"></button>
             </div>
         </div>
+        </div>
+    `;
+}
+
+function getBasketWrapperResponsiveHTMLTemplate() {
+  return `
+        <div id="basketResponsive">
+            <h1>Warenkorb</h1>
+            <div class="inner_basket">
+                <div class="basket_section_line">
+                    <hr class="solid">
+                </div>
+                <div id="basketContentResponsive">
+                <p>Fügen Sie etwas ihrem <br> Warenkorb hinzu.</p>
+                </div>
+                <div class="basket_section_line">
+                    <hr class="solid">
+                </div>
+                    <div id="basketCalcResponsive">
+                            <div class="single_basket_value">
+                                <div for="subtotal">Zwischensumme</div>
+                                <div name="subtotal" id="subtotal">${basket.calculation[0].subTotal.toFixed(
+                                2
+                                )} €</div>
+                            </div>
+                            <div class="single_basket_value">
+                                <div for="delivery_price">Lieferkosten</div>
+                                <div name="delivery_price" id="delivery_price">${basket.calculation[0].delivery_price.toFixed(
+                                2
+                                )} €</div>
+                            </div>
+                            <div class="single_basket_value">
+                                <div for="total_price">Gesamtkosten</div>
+                                <div name="total_price" id="total_price">${basket.calculation[0].total.toFixed(
+                                2
+                                )} €</div>
+                            </div>
+                            <div><button onclick="showOverlayBasketMessage()" type="submit" class="basket_order_button" name="submit">Bestellung abschicken</button></div>
+                    </div>
+                </div>
         </div>
     `;
 }
