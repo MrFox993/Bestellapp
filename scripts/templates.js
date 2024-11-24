@@ -141,3 +141,21 @@ function getBasketWrapperResponsiveHTMLTemplate() {
         </div>
     `;
 }
+
+function getOverlaysHTMLTemplate() {
+  return `
+          <div id="overlay_basket_message" class="overlay_basket_message">
+          <div class="overlay_basket_message_content">
+              <h2 id="overlay_basket_message_text"></h2>
+              <button onclick="closeBasketMessage()" id="closeBasketMessageButton">Schließen</button>
+          </div>
+        </div>
+        <button onclick="showBasketOverlay()" id="showBasketButton">Warenkorb anzeigen</button>
+        <div onclick="closeBasketOverlay()" id="basketOverlay" class="overlay_basket_content">
+        <div class="basket_content_wrapper_responsive" id="basketContentWrapperResponsive">
+            <span onclick="closeBasketOverlay()" id="closeBasketButton" class="close_basket_button">&times;</span>
+            <div id="innerBasketResponsive">Fügen Sie etwas ihrem Warenkorb hinzu.</div>
+        </div>
+        </div>
+  `;
+}

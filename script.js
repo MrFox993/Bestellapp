@@ -56,6 +56,7 @@ function renderDishes(indexMenuCatagory) {
       indexDish
     );
   }
+  renderOverlays();
 }
 
 function renderBasket() {
@@ -74,6 +75,11 @@ function renderBasketContent() {
   ) {
     basketContentRef.innerHTML += getBasketContentHTMLTemplate(basketIndex);
   }
+}
+
+function renderOverlays() {
+  let overlaysRef = document.getElementById('overlays');
+  overlaysRef.innerHTML = getOverlaysHTMLTemplate();
 }
 
 function renderDeliveryChoice() {
