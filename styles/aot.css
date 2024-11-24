@@ -1,19 +1,19 @@
 .aot {
-    height: 36dvh;
-    background-image: url("../assets/img/pizza_aot.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
+  height: 36dvh;
+  background-image: url("../assets/img/pizza_aot.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .restaurant_info {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
 }
 
 .restaurant_info img {
-    max-width: 150px;
-    border-radius: 8px;
+  max-width: 150px;
+  border-radius: 8px;
 }
 
 /* .restaurant_details {
@@ -21,24 +21,23 @@
 } */
 
 .restaurant_details h2 {
-    margin: 0;
-    font-size: 24px;
+  margin: 0;
+  font-size: 24px;
 }
 
 .restaurant_details .rating {
-    color: #ff6600;
+  color: #ff6600;
 }
 
 .restaurant_logo {
-    width: 80px;
+  width: 80px;
 }
 
 .restaurant_overview {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 80px;
-    background-color: #fff;
-    padding: 20px;
-
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 80px;
+  background-color: #fff;
+  padding: 20px;
 }

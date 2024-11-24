@@ -78,7 +78,7 @@ function renderBasketContent() {
 }
 
 function renderOverlays() {
-  let overlaysRef = document.getElementById('overlays');
+  let overlaysRef = document.getElementById("overlays");
   overlaysRef.innerHTML = getOverlaysHTMLTemplate();
 }
 
@@ -137,7 +137,7 @@ function decreaseAmountBasket(index_basket_dish, event) {
 }
 
 function deleteFromBasket(index_basket_dish, event) {
-  let basketOverlayRef = document.getElementById('basketOverlay')
+  let basketOverlayRef = document.getElementById("basketOverlay");
   let basket_dish_index = "";
   basket_dish_index = Object.entries(basket)[index_basket_dish][0];
   delete basket[basket_dish_index];
@@ -147,7 +147,7 @@ function deleteFromBasket(index_basket_dish, event) {
   //   renderDeliveryChoice();
   emptyBasket();
   emptyBasketResponsive();
-  if (basketOverlayRef.style.display !== "none"){
+  if (basketOverlayRef.style.display !== "none") {
     event.stopPropagation();
   }
 }
@@ -214,13 +214,19 @@ function emptyBasket() {
   }
 }
 function emptyBasketResponsive() {
-  let basketContentResponsiveRef = document.getElementById('basketContentResponsive');
-  if (basketContentResponsiveRef != null){
-    if (basketContentResponsiveRef.innerHTML == null || basketContentResponsiveRef.innerHTML == "") {
-      basketContentResponsiveRef.innerHTML = "Fügen Sie etwas ihrem <br> Warenkorb hinzu."
+  let basketContentResponsiveRef = document.getElementById(
+    "basketContentResponsive"
+  );
+  if (basketContentResponsiveRef != null) {
+    if (
+      basketContentResponsiveRef.innerHTML == null ||
+      basketContentResponsiveRef.innerHTML == ""
+    ) {
+      basketContentResponsiveRef.innerHTML =
+        "Fügen Sie etwas ihrem <br> Warenkorb hinzu.";
     }
   } else {
-    return
+    return;
   }
 }
 
@@ -268,26 +274,31 @@ function closeBasketMessage() {
 }
 
 function showBasketOverlay() {
-  let basketOverlayRef = document.getElementById('basketOverlay');
+  let basketOverlayRef = document.getElementById("basketOverlay");
   basketOverlayRef.style.display = "flex";
   renderBasketOverlay();
   emptyBasketResponsive();
 }
 
 function closeBasketOverlay() {
-  let basketOverlayRef = document.getElementById('basketOverlay');
+  let basketOverlayRef = document.getElementById("basketOverlay");
   basketOverlayRef.style.display = "none";
 }
 
 function renderBasketOverlay() {
-  let basketContentResponsiveRef = document.getElementById('innerBasketResponsive');
+  let basketContentResponsiveRef = document.getElementById(
+    "innerBasketResponsive"
+  );
   basketContentResponsiveRef.innerHTML = "";
-  basketContentResponsiveRef.innerHTML += getBasketWrapperResponsiveHTMLTemplate();
-  renderBasketContentResponsive()
+  basketContentResponsiveRef.innerHTML +=
+    getBasketWrapperResponsiveHTMLTemplate();
+  renderBasketContentResponsive();
 }
 
 function renderBasketContentResponsive() {
-  let basketContentResponsiveRef = document.getElementById('basketContentResponsive');
+  let basketContentResponsiveRef = document.getElementById(
+    "basketContentResponsive"
+  );
   if (basketContentResponsiveRef != null) {
     basketContentResponsiveRef.innerHTML = "";
     for (
@@ -295,10 +306,10 @@ function renderBasketContentResponsive() {
       basketIndex < Object.entries(basket).length;
       basketIndex++
     ) {
-      basketContentResponsiveRef.innerHTML += getBasketContentHTMLTemplate(basketIndex);
+      basketContentResponsiveRef.innerHTML +=
+        getBasketContentHTMLTemplate(basketIndex);
     }
   } else {
-    return
+    return;
   }
-
 }

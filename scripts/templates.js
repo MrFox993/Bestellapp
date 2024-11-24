@@ -8,7 +8,7 @@ function getDishesCatagoryHTMLTemplate(indexMenuCatagory) {
   return `
             <div id="dishes_catagory_${indexMenuCatagory}" class="dishes">
                 <h1>${Object.keys(menu)[indexMenuCatagory]}</h1>
-                <div class="catagory_image_bg" id="catagory_image_${(indexMenuCatagory)}"></div>
+                <div class="catagory_image_bg" id="catagory_image_${indexMenuCatagory}"></div>
             </div>
     `;
 }
@@ -53,19 +53,19 @@ function getBasketWrapperHTMLTemplate() {
                             <div class="single_basket_value">
                                 <div for="subtotal">Zwischensumme</div>
                                 <div name="subtotal" id="subtotal">${basket.calculation[0].subTotal.toFixed(
-                                2
+                                  2
                                 )} €</div>
                             </div>
                             <div class="single_basket_value">
                                 <div for="delivery_price">Lieferkosten</div>
                                 <div name="delivery_price" id="delivery_price">${basket.calculation[0].delivery_price.toFixed(
-                                2
+                                  2
                                 )} €</div>
                             </div>
                             <div class="single_basket_value">
                                 <div for="total_price">Gesamtkosten</div>
                                 <div name="total_price" id="total_price">${basket.calculation[0].total.toFixed(
-                                2
+                                  2
                                 )} €</div>
                             </div>
                             <div><button onclick="showOverlayBasketMessage()" type="submit" class="basket_order_button" name="submit">Bestellung abschicken</button></div>
@@ -75,11 +75,13 @@ function getBasketWrapperHTMLTemplate() {
     `;
 }
 // TODO switch for delivery or take away
-{/* <label class="toggle" for="delivery_choice">
+{
+  /* <label class="toggle" for="delivery_choice">
                             <input type="checkbox" id="delivery_choice" name="delivery_choice" checked="${(basket.calculation[0].delivery_choice)}" onclick="calcBasketDeliveryPrice()">
                             <span class="slider"></span>
                             <span class="labels" data-on="Lieferung" data-off="Abholen"></span>
-                            </label> */}
+                            </label> */
+}
 
 function getBasketContentHTMLTemplate(indexBasket) {
   return `
@@ -120,19 +122,19 @@ function getBasketWrapperResponsiveHTMLTemplate() {
                             <div class="single_basket_value">
                                 <div for="subtotal">Zwischensumme</div>
                                 <div name="subtotal" id="subtotal">${basket.calculation[0].subTotal.toFixed(
-                                2
+                                  2
                                 )} €</div>
                             </div>
                             <div class="single_basket_value">
                                 <div for="delivery_price">Lieferkosten</div>
                                 <div name="delivery_price" id="delivery_price">${basket.calculation[0].delivery_price.toFixed(
-                                2
+                                  2
                                 )} €</div>
                             </div>
                             <div class="single_basket_value">
                                 <div for="total_price">Gesamtkosten</div>
                                 <div name="total_price" id="total_price">${basket.calculation[0].total.toFixed(
-                                2
+                                  2
                                 )} €</div>
                             </div>
                             <div><button onclick="showOverlayBasketMessage()" type="submit" class="basket_order_button" name="submit">Bestellung abschicken</button></div>

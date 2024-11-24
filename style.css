@@ -1,23 +1,23 @@
 .content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding-top: 40px;
-    max-width: 1920px;
-    background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 40px;
+  max-width: 1920px;
+  background-color: #fff;
 }
 
 .split_screen {
-    display: flex;
+  display: flex;
 }
 
 .full_content_wrap {
-    width: calc(100% - 420px);
+  width: calc(100% - 420px);
 }
 
 @media (min-width: 720px) and (max-width: 900px) {
-    .full_content_wrap {
-      width: calc(100% - 320px);
-    }
+  .full_content_wrap {
+    width: calc(100% - 320px);
   }
+}
