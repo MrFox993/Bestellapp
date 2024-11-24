@@ -20,11 +20,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 336px;
+  width: 100%;
 }
 .basket_section_line {
   width: 100%;
-  padding: 16px;
+  padding: 16px 4px;
 }
 hr.solid {
   border-top: 3px solid #bbb;
@@ -39,11 +39,12 @@ hr.solid {
   align-items: center;
   justify-content: space-between;
   padding: 0 16px;
-  width: 320px;
+  /* width: 320px; */
+  width: 100%;
 }
 #basket_content {
   padding: 0 16px;
-  width: 300px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -61,7 +62,7 @@ hr.solid {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 282px;
+  width: 100%;
 }
 .basket_dish_amount {
   display: flex;
@@ -88,124 +89,124 @@ hr.solid {
   background-color: lightgray;
 }
 .basket_dish_price button:hover {
-    background-color: #ff6600;
+  background-color: #ff6600;
 }
 .trash_button_img {
   width: 16px;
   height: 16px;
 }
 .basket_order_button {
-    width: 236px;
-    font-size: 24px;
-    background-color: #ff6600;
-    cursor: pointer;
+  width: 80%;
+  font-size: 24px;
+  background-color: #ff6600;
+  cursor: pointer;
 }
 form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .toggle {
-    --width: 120px;
-    --height: calc(var(--width) / 3);
+  --width: 120px;
+  --height: calc(var(--width) / 3);
 
-    position: relative;
-    display: inline-block;
-    width: var(--width);
-    height: var(--height);
-    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
-    border-radius: var(--height);
-    cursor: pointer;
-    margin-top: 13px;
-  }
+  position: relative;
+  display: inline-block;
+  width: var(--width);
+  height: var(--height);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+  border-radius: var(--height);
+  cursor: pointer;
+  margin-top: 13px;
+}
 
-  .toggle input {
-    display: none;
-  }
+.toggle input {
+  display: none;
+}
 
-  .toggle .slider {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: var(--height);
-    background-color: #ccc;
-    transition: all 0.4s ease-in-out;
-  }
+.toggle .slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--height);
+  background-color: #ccc;
+  transition: all 0.4s ease-in-out;
+}
 
-  .toggle .slider::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: calc(var(--height));
-    height: calc(var(--height));
-    border-radius: calc(var(--height) / 2);
-    background-color: #fff;
-    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
-    transition: all 0.4s ease-in-out;
-  }
+.toggle .slider::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(var(--height));
+  height: calc(var(--height));
+  border-radius: calc(var(--height) / 2);
+  background-color: #fff;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s ease-in-out;
+}
 
-  .toggle input:checked+.slider {
-    background-color: #ff6600;
-  }
+.toggle input:checked + .slider {
+  background-color: #ff6600;
+}
 
-  .toggle input:checked+.slider::before {
-    transform: translateX(calc(var(--width) - var(--height)));
-  }
+.toggle input:checked + .slider::before {
+  transform: translateX(calc(var(--width) - var(--height)));
+}
 
-  .toggle .labels {
-    position: absolute;
-    top: 11px;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    font-size: 16px;
-    font-family: sans-serif;
-    transition: all 0.4s ease-in-out;
-  }
+.toggle .labels {
+  position: absolute;
+  top: 11px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+  font-family: sans-serif;
+  transition: all 0.4s ease-in-out;
+}
 
-  .toggle .labels::after {
-    content: attr(data-off);
-    position: absolute;
-    right: 8px;
-    color: #4d4d4d;
-    opacity: 1;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
-    transition: all 0.4s ease-in-out;
-  }
+.toggle .labels::after {
+  content: attr(data-off);
+  position: absolute;
+  right: 8px;
+  color: #4d4d4d;
+  opacity: 1;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+  transition: all 0.4s ease-in-out;
+}
 
-  .toggle .labels::before {
-    content: attr(data-on);
-    position: absolute;
-    left: 8px;
-    color: #ffffff;
-    opacity: 0;
-    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.4);
-    transition: all 0.4s ease-in-out;
-  }
+.toggle .labels::before {
+  content: attr(data-on);
+  position: absolute;
+  left: 8px;
+  color: #ffffff;
+  opacity: 0;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.4);
+  transition: all 0.4s ease-in-out;
+}
 
-  .toggle input:checked~.labels::after {
-    opacity: 0;
-  }
+.toggle input:checked ~ .labels::after {
+  opacity: 0;
+}
 
-  .toggle input:checked~.labels::before {
-    opacity: 1;
-  }
+.toggle input:checked ~ .labels::before {
+  opacity: 1;
+}
 
-  #showBasketButton {
-    display: none; 
-  }
+#showBasketButton {
+  display: none;
+}
 
-  .basket_content_wrapper_responsive {
-    background: #fff;
-    padding: 20px;
-    width: 80%;
-    max-width: 500px;
-    border-radius: 8px;
-    text-align: center;
-    position: relative;
+.basket_content_wrapper_responsive {
+  background: #fff;
+  padding: 20px;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 8px;
+  text-align: center;
+  position: relative;
 }
 
 #basketResponsive {
@@ -217,6 +218,17 @@ form {
   padding: 16px 0;
 }
 
+#basketCalcResponsive {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: -webkit-fill-available;
+}
+
+#basketContentResponsive {
+  padding: 0 8px;
+}
+
 @media (min-width: 721px) and (max-width: 900px) {
   .single_dish_basket_info {
     width: 240px;
@@ -225,27 +237,28 @@ form {
     width: 320px;
   }
   .single_basket_value {
-    width: 260px;
+    /* width: 260px; */
+    padding: 0 32px;
   }
 }
 
 @media (min-width: 320px) and (max-width: 720px) {
   #showBasketButton {
-      display: block;
-      position: fixed; 
-      bottom: 32px; 
-      left: 50%; 
-      transform: translateX(-50%); 
-      padding: 0 8px;
-      background-color: #ff6600; 
-      border: none;
-      border-radius: 8px;
-      font-size: 16px;
-      cursor: pointer;
-      z-index: 500; 
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-      width: 80%;
-      margin: 0;
+    display: block;
+    position: fixed;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0 8px;
+    background-color: #ff6600;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    z-index: 500;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    width: 80%;
+    margin: 0;
   }
 
   .basket_wrap {
@@ -255,5 +268,4 @@ form {
   .full_content_wrap {
     width: 100%;
   }
-
 }

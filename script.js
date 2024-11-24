@@ -206,8 +206,12 @@ function emptyBasket() {
 }
 function emptyBasketResponsive() {
   let basketContentResponsiveRef = document.getElementById('basketContentResponsive');
-  if (basketContentResponsiveRef.innerHTML == null || basketContentResponsiveRef.innerHTML == "") {
-    basketContentResponsiveRef.innerHTML = "Fügen Sie etwas ihrem Warenkorb hinzu."
+  if (basketContentResponsiveRef != null){
+    if (basketContentResponsiveRef.innerHTML == null || basketContentResponsiveRef.innerHTML == "") {
+      basketContentResponsiveRef.innerHTML = "Fügen Sie etwas ihrem <br> Warenkorb hinzu."
+    }
+  } else {
+    return
   }
 }
 
