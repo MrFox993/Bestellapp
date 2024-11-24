@@ -57,6 +57,7 @@ hr.solid {
   justify-content: center;
   padding-bottom: 16px;
   box-sizing: border-box;
+  width: -webkit-fill-available;
 }
 .single_dish_basket_info {
   display: flex;
