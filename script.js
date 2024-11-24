@@ -126,11 +126,12 @@ function decreaseAmountBasket(index_basket_dish, event) {
     // renderDeliveryChoice();
     event.stopPropagation();
   } else {
-    deleteFromBasket(index_basket_dish);
+    deleteFromBasket(index_basket_dish, event);
   }
 }
 
 function deleteFromBasket(index_basket_dish, event) {
+  let basketOverlayRef = document.getElementById('basketOverlay')
   let basket_dish_index = "";
   basket_dish_index = Object.entries(basket)[index_basket_dish][0];
   delete basket[basket_dish_index];
@@ -140,7 +141,9 @@ function deleteFromBasket(index_basket_dish, event) {
   //   renderDeliveryChoice();
   emptyBasket();
   emptyBasketResponsive();
-  event.stopPropagation();
+  if (basketOverlayRef.style.display !== "none"){
+    event.stopPropagation();
+  }
 }
 
 function calcSingleDishSubTotal(index_basket_dish) {
