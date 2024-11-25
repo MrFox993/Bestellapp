@@ -1,6 +1,7 @@
 let indexBasketCalculation = 0;
 let indexBasketCalculationData = 1;
 let indexBasketSingleDishData = 1;
+let menuLength = Object.keys(menu).length
 
 function init() {
   renderNavBar();
@@ -11,7 +12,7 @@ function init() {
 function renderNavBar() {
   let navbarRef = document.getElementById("navbar");
   navbarRef.innerHTML = "";
-  for (let indexMenu = 0; indexMenu < Object.keys(menu).length; indexMenu++) {
+  for (let indexMenu = 0; indexMenu < menuLength; indexMenu++) {
     navbarRef.innerHTML += getNavbarHTMLTemplate(indexMenu);
   }
 }
@@ -19,11 +20,7 @@ function renderNavBar() {
 function renderMenuCatagory() {
   let contentRef = document.getElementById("content");
   contentRef.innerHTML = "";
-  for (
-    let indexMenuCatagory = 0;
-    indexMenuCatagory < Object.keys(menu).length;
-    indexMenuCatagory++
-  ) {
+  for (let indexMenuCatagory = 0; indexMenuCatagory < menuLength; indexMenuCatagory++) {
     contentRef.innerHTML += getDishesCatagoryHTMLTemplate(indexMenuCatagory);
     renderMenuCatagoryImage(indexMenuCatagory);
     renderDishes(indexMenuCatagory);
@@ -33,28 +30,17 @@ function renderMenuCatagoryImage(indexMenuCatagory) {
   let menuCatagoryImageRef = document.getElementById(
     `catagory_image_${indexMenuCatagory}`
   );
+  let menuCatagoryLength = (Object.entries(menu)[indexMenuCatagory][1].length - 1)
   menuCatagoryImageRef.innerHTML = "";
-  menuCatagoryImageRef.style.backgroundImage = `url('${
-    Object.entries(menu)[indexMenuCatagory][1][
-      Object.entries(menu)[indexMenuCatagory][1].length - 1
-    ].image
-  }')`;
+  menuCatagoryImageRef.style.backgroundImage = `url('${Object.entries(menu)[indexMenuCatagory][1][menuCatagoryLength].image}')`;
 }
 
 function renderDishes(indexMenuCatagory) {
-  let singleDishRef = document.getElementById(
-    `dishes_catagory_${indexMenuCatagory}`
-  );
-  // singleDishRef.innerHTML = "";
+  let singleDishRef = document.getElementById(`dishes_catagory_${indexMenuCatagory}`);
+  let menuCatagoryLength = (Object.entries(menu)[indexMenuCatagory][1].length - 1)
   for (
-    let indexDish = 0;
-    indexDish < Object.entries(menu)[indexMenuCatagory][1].length - 1;
-    indexDish++
-  ) {
-    singleDishRef.innerHTML += getSingleDishesHTMLTemplate(
-      indexMenuCatagory,
-      indexDish
-    );
+    let indexDish = 0; indexDish < menuCatagoryLength; indexDish++) {
+    singleDishRef.innerHTML += getSingleDishesHTMLTemplate(indexMenuCatagory, indexDish);
   }
   renderOverlays();
 }
@@ -68,11 +54,8 @@ function renderBasket() {
 function renderBasketContent() {
   let basketContentRef = document.getElementById("basket_content");
   basketContentRef.innerHTML = "";
-  for (
-    let basketIndex = 1;
-    basketIndex < Object.entries(basket).length;
-    basketIndex++
-  ) {
+  let basketLength = Object.entries(basket).length
+  for (let basketIndex = 1; basketIndex < basketLength; basketIndex++) {
     basketContentRef.innerHTML += getBasketContentHTMLTemplate(basketIndex);
   }
 }
@@ -80,12 +63,6 @@ function renderBasketContent() {
 function renderOverlays() {
   let overlaysRef = document.getElementById("overlays");
   overlaysRef.innerHTML = getOverlaysHTMLTemplate();
-}
-
-function renderDeliveryChoice() {
-  let deliveryChoiceRef = document.getElementById("delivery_choice");
-  let deliveryChoiceChecked = deliveryChoiceRef.checked;
-  deliveryChoiceRef.innerHTML = deliveryChoiceChecked;
 }
 
 function addToBasket(indexMenuCatagory, indexDish) {
@@ -105,7 +82,6 @@ function addToBasket(indexMenuCatagory, indexDish) {
   }
   calcBasketSubTotal();
   renderBasketContent();
-  //   renderDeliveryChoice();
 }
 
 function increaseAmountBasket(index_basket_dish, event) {
@@ -116,7 +92,6 @@ function increaseAmountBasket(index_basket_dish, event) {
   calcBasketSubTotal();
   renderBasketContent();
   renderBasketContentResponsive();
-  //   renderDeliveryChoice();
   event.stopPropagation();
 }
 
@@ -129,7 +104,6 @@ function decreaseAmountBasket(index_basket_dish, event) {
     calcBasketSubTotal();
     renderBasketContent();
     renderBasketContentResponsive();
-    // renderDeliveryChoice();
     event.stopPropagation();
   } else {
     deleteFromBasket(index_basket_dish, event);
@@ -144,7 +118,6 @@ function deleteFromBasket(index_basket_dish, event) {
   renderBasketContent();
   renderBasketContentResponsive();
   calcBasketSubTotal();
-  //   renderDeliveryChoice();
   emptyBasket();
   emptyBasketResponsive();
   if (basketOverlayRef.style.display !== "none") {
@@ -153,56 +126,37 @@ function deleteFromBasket(index_basket_dish, event) {
 }
 
 function calcSingleDishSubTotal(index_basket_dish) {
+  let basketDishSubtotal = Object.entries(basket)[index_basket_dish][1].subtotal
   let basket_dish_index = "";
   basket_dish_index = Object.entries(basket)[index_basket_dish][0];
-  let amountSingleDishBasket =
-    Object.entries(basket)[index_basket_dish][indexBasketSingleDishData].amount;
-  let priceSingleDishBasket =
-    Object.entries(basket)[index_basket_dish][indexBasketSingleDishData].price;
+  let amountSingleDishBasket = Object.entries(basket)[index_basket_dish][indexBasketSingleDishData].amount;
+  let priceSingleDishBasket = Object.entries(basket)[index_basket_dish][indexBasketSingleDishData].price;
   let subtotalSingleDishBasket = amountSingleDishBasket * priceSingleDishBasket;
-  Object.entries(basket)[index_basket_dish][1].subtotal =
-    subtotalSingleDishBasket;
+  basketDishSubtotal = subtotalSingleDishBasket;
 }
 
 function calcBasketSubTotal() {
-  Object.entries(basket)[indexBasketCalculation][
-    indexBasketCalculationData
-  ][0].subTotal = 0;
-  for (
-    let indexDishBasket = 1;
-    indexDishBasket < Object.entries(basket).length;
-    indexDishBasket++
-  ) {
-    Object.entries(basket)[indexBasketCalculation][
-      indexBasketCalculationData
-    ][0].subTotal += Object.entries(basket)[indexDishBasket][1].subtotal;
+  let basketSubtotal = Object.entries(basket)[indexBasketCalculation][indexBasketCalculationData][0].subTotal
+  let basketDishSubtotal = Object.entries(basket)[index_basket_dish][1].subtotal
+  let basketLength = Object.entries(basket).length
+  basketSubtotal = 0;
+  for (let indexDishBasket = 1; indexDishBasket < basketLength; indexDishBasket++) {
+    basketSubtotal += basketDishSubtotal;
   }
   calcBasketTotal();
 }
 
 function calcBasketTotal() {
-  if (
-    Object.entries(basket)[indexBasketCalculation][
-      indexBasketCalculationData
-    ][0].subTotal != 0
-  ) {
-    Object.entries(basket)[indexBasketCalculation][
-      indexBasketCalculationData
-    ][0].total =
-      Object.entries(basket)[indexBasketCalculation][
-        indexBasketCalculationData
-      ][0].subTotal +
-      Object.entries(basket)[indexBasketCalculation][
-        indexBasketCalculationData
-      ][0].delivery_price;
+  let basketSubtotal = Object.entries(basket)[indexBasketCalculation][indexBasketCalculationData][0].subTotal
+  let basketTotal = Object.entries(basket)[indexBasketCalculation][indexBasketCalculationData][0].total
+  let basketDeliveryPrice = Object.entries(basket)[indexBasketCalculation][indexBasketCalculationData][0].delivery_price
+  if (basketSubtotal != 0) {
+    basketTotal = basketSubtotal + basketDeliveryPrice;
     renderBasket();
     renderBasketContent();
   } else {
-    Object.entries(basket)[indexBasketCalculation][
-      indexBasketCalculationData
-    ][0].total = 0;
+    basketTotal = 0;
     renderBasket();
-    // renderDeliveryChoice();
     renderBasketContent();
   }
 }
@@ -230,19 +184,6 @@ function emptyBasketResponsive() {
   }
 }
 
-function calcBasketDeliveryPrice() {
-  let deliveryChoiceRef = document.getElementById("delivery_choice");
-  let deliveryChoiceChecked = deliveryChoiceRef["checked"];
-  let basketDeliveryPrice = document.getElementById("delivery_price");
-  if (deliveryChoiceChecked === false) {
-    basket.calculation[0].delivery_price = 0;
-    basket.calculation[0].delivery_choice = false;
-  } else {
-    basket.calculation[0].delivery_price = 5;
-    basket.calculation[0].delivery_choice = true;
-  }
-}
-
 function showOverlayBasketMessage() {
   let overlayBasketMessageRef = document.getElementById(
     "overlay_basket_message"
@@ -254,11 +195,7 @@ function showOverlayBasketMessage() {
     overlayBasketMessageRef.style.display = "flex";
     overlayBasketMessageTextRef.innerText = `Vielen Dank für Ihre Bestellung.
     Ihre Bestellung wird nun bearbeitet.`;
-    basket = {
-      calculation: [
-        { subTotal: 0, delivery_price: 5, delivery_choice: true, total: 0 },
-      ],
-    };
+    basket = {calculation: [{ subTotal: 0, delivery_price: 5, delivery_choice: true, total: 0 },],};
     calcBasketSubTotal();
     emptyBasket();
     emptyBasketResponsive();
@@ -290,24 +227,17 @@ function renderBasketOverlay() {
     "innerBasketResponsive"
   );
   basketContentResponsiveRef.innerHTML = "";
-  basketContentResponsiveRef.innerHTML +=
-    getBasketWrapperResponsiveHTMLTemplate();
+  basketContentResponsiveRef.innerHTML += getBasketWrapperResponsiveHTMLTemplate();
   renderBasketContentResponsive();
 }
 
 function renderBasketContentResponsive() {
-  let basketContentResponsiveRef = document.getElementById(
-    "basketContentResponsive"
-  );
+  let basketContentResponsiveRef = document.getElementById("basketContentResponsive");
+  let basketLength = Object.entries(basket).length
   if (basketContentResponsiveRef != null) {
     basketContentResponsiveRef.innerHTML = "";
-    for (
-      let basketIndex = 1;
-      basketIndex < Object.entries(basket).length;
-      basketIndex++
-    ) {
-      basketContentResponsiveRef.innerHTML +=
-        getBasketContentHTMLTemplate(basketIndex);
+    for (let basketIndex = 1; basketIndex < basketLength; basketIndex++) {
+      basketContentResponsiveRef.innerHTML +=getBasketContentHTMLTemplate(basketIndex);
     }
   } else {
     return;
