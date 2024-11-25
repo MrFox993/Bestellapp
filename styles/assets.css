@@ -8,4 +8,5 @@ button {
   font-size: -webkit-xxx-large;
   border-radius: 8px;
   margin: 16px;
+  cursor: pointer;
 }
